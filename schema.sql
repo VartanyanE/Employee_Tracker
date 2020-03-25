@@ -29,8 +29,7 @@ CREATE TABLE department
         (11) NOT NULL,
   PRIMARY KEY
         (id),
-  KEY role_ibfk_1
-        (department_id),
+ 
   CONSTRAINT role_ibfk_1 FOREIGN KEY
         (department_id) REFERENCES department
         (id));
@@ -51,10 +50,7 @@ CREATE TABLE department
             (11) DEFAULT NULL,
   PRIMARY KEY
             (id),
-  KEY employee_ibfk_1
-            (role_id),
-  KEY employee_ibfk_2
-            (manager_id),
+
   CONSTRAINT employee_ibfk_1 FOREIGN KEY
             (role_id) REFERENCES role
             (id),
@@ -92,15 +88,15 @@ CREATE TABLE department
             INSERT INTO employee
                 (id, first_name, last_name, role_id, manager_id)
             VALUES
-                (NULL, "Marvin", "Hernandez", 12, NULL),
-                (NULL, "Jennifer", "Chan", 11, 3),
-                (NULL, "Ora", "Carter", 2, 10),
-                (NULL, "Woodrow", "Stevens", 3, NULL),
-                (NULL, "Owen", "Hampton", 4, 4),
-                (NULL, "Irvin", "Newman", 10, 9),
-                (NULL, "Rafael", "Wheeler", 7, NULL),
-                (NULL, "Jana", "Hanson", 2, 10),
-                (NULL, "Casey", "Huff", 9, NULL),
-                (NULL, "Don", "Floyd", 1, NULL),
-                (NULL, "Terri", "Lloyd", 12, NULL)
+                (NULL, "Emanuil", "Vartanyan", 12, NULL),
+                (NULL, "Jane", "Smith", 11, 3),
+                (NULL, "John ", "Doe", 2, 10),
+                (NULL, "Kenny", "Smith", 3, NULL),
+                (NULL, "Owen", "Wilson", 4, 4),
+                (NULL, "Bill", "Gates", 10, 9),
+                (NULL, "Elon", "Musk", 7, NULL),
+                (NULL, "Jane", "Lynch", 2, 10),
+                (NULL, "Peter", "Piper", 9, NULL),
+                (NULL, "Don", "Juan", 1, NULL),
+                (NULL, "John", "Gotti", 12, NULL)
   

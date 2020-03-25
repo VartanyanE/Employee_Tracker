@@ -62,7 +62,7 @@ function startApp() {
 }
 
 const viewEmployees = () => {
-    connection.query("SELECT employee.id,employee.first_name AS First,employee.last_name AS Last, role.title,role.salary,department.name AS dept FROM employee_db.employee   JOIN employee_db.role JOIN employee_db.department", function (err, res) {
+    connection.query("SELECT * FROM employee", function (err, res) {
         if (err) throw err;
         console.table(res);
         // connection.end();
