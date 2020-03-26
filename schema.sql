@@ -98,5 +98,30 @@ CREATE TABLE department
                 (NULL, "Jane", "Lynch", 2, 10),
                 (NULL, "Peter", "Piper", 9, NULL),
                 (NULL, "Don", "Juan", 1, NULL),
-                (NULL, "John", "Gotti", 12, NULL)
+                (NULL, "John", "Gotti", 12, NULL);
+
+
+
+
+
+            SELECT
+                employee.id,
+                employee.first_name AS First,
+                employee.last_name AS Last,
+                role.title,
+                role.salary,
+                department.name
+
+            FROM employee_db.employee
+                LEFT JOIN employee_db.role
+                ON employee.role_id = role.id
+                LEFT JOIN employee_db.department
+                ON role.department_id = department.id
+  
+
+
+  
+  
+  
+  
   
