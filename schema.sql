@@ -108,9 +108,10 @@ CREATE TABLE department
                 employee.id,
                 employee.first_name AS First,
                 employee.last_name AS Last,
+                employee.manager_id AS Manager,
                 role.title,
                 role.salary,
-                department.name
+                department.name AS Department
 
             FROM employee_db.employee
                 LEFT JOIN employee_db.role

@@ -76,6 +76,7 @@ const viewEmployees = () => {
     connection.query("SELECT employee.id,employee.first_name AS First,employee.last_name AS Last,role.title,role.salary,department.name AS Department FROM employee_db.employee LEFT JOIN employee_db.role ON employee.role_id = role.id LEFT JOIN employee_db.department ON role.department_id = department.id ", function (err, res) {
         if (err) throw err;
         console.table(res);
+        // cTable("All Employees:", res);
         // connection.end();
         startApp();
     });
