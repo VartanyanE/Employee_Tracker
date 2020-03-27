@@ -49,8 +49,8 @@ function startApp() {
                     employeesDept();
                     break;
 
-                case "View All Employees By Managere":
-                    //   rangeSearch();
+                case "View All Employees By Manager":
+                    managerView();
                     break;
 
                 case "Add Employee":
@@ -76,8 +76,6 @@ const viewEmployees = () => {
     connection.query("SELECT employee.id,employee.first_name AS First,employee.last_name AS Last,role.title,role.salary,department.name AS Department FROM employee_db.employee LEFT JOIN employee_db.role ON employee.role_id = role.id LEFT JOIN employee_db.department ON role.department_id = department.id ", function (err, res) {
         if (err) throw err;
         console.table(res);
-        // cTable("All Employees:", res);
-        // connection.end();
         startApp();
     });
 
@@ -87,7 +85,15 @@ const employeesDept = () => {
     connection.query("SELECT employee.id,employee.first_name AS First, employee.last_name AS Name,department.name AS Department FROM employee_db.employee LEFT JOIN employee_db.role ON employee.role_id = role.id LEFT JOIN employee_db.department ON role.department_id = department.id", function (err, res) {
         if (err) throw err;
         console.table(res);
-        // connection.end();
+        startApp();
+    });
+
+}
+
+const managerView = () => {
+    connection.query("SELECT employee.manager_id As Manager,employee.first_name AS First, employee.last_name AS Name FROM employee_db.employee INNER JOIN employee_db.role ON employee.role_id = role.id WHERE manager_id IS NOT NULL ORDER BY manager_id", function (err, res) {
+        if (err) throw err;
+        console.table(res);
         startApp();
     });
 
